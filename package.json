@@ -1,0 +1,32 @@
+{
+  "name": "firecrackerode",
+  "description": "Firecracker API module.",
+  "version": "0.0.1",
+  "author": "Pedro Dias <petermdias@gmail.com>",
+  "maintainers": [
+    "apocas <petermdias@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/apocas/firecrackerode.git"
+  },
+  "keywords": [
+    "firecracker"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "bluebird": "^3.7.0",
+    "chai": "~4.2.0",
+    "memorystream": "~0.3.0",
+    "mocha": "^7.1.0"
+  },
+  "main": "./lib/firecracker",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -R spec --exit"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">= 8.0"
+  }
+}
