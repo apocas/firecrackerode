@@ -5,7 +5,7 @@ var firecracker = require('./helper').firecracker;
 describe('#firecracker', function () {
 
   describe('#images', function () {
-    it('should download images', function (done) {
+    it('should download kernel & filesystem images', function (done) {
       var kernelImg = 'https://s3.amazonaws.com/spec.ccfc.min/img/hello/kernel/hello-vmlinux.bin';
       var rootImg = 'https://s3.amazonaws.com/spec.ccfc.min/img/hello/fsfiles/hello-rootfs.ext4';
 
@@ -16,6 +16,7 @@ describe('#firecracker', function () {
         done();
       }).catch(function (err) {
         expect(err).to.be.null;
+        done();
       });
     });
 
@@ -23,8 +24,10 @@ describe('#firecracker', function () {
       firecracker.info().then(function(data) {
         console.log(data);
         expect(data).to.be.ok;
+        done();
       }).catch(function (err) {
         expect(err).to.be.null;
+        done();
       });
     });
   });

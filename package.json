@@ -21,7 +21,7 @@
   },
   "main": "./lib/firecracker",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha -R spec --exit"
+    "test": "./node_modules/mocha/bin/mocha -R spec --timeout 10000 --exit "
   },
   "license": "Apache-2.0",
   "engines": {
