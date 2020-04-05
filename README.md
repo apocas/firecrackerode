@@ -20,7 +20,7 @@ var Firecracker = require('dockerode');
 var firecracker = new Firecracker({socketPath: '/tmp/firecracker.socket'});
 ```
 
-### Spawning a MicroVM
+### Creating a MicroVM
 
 ``` js
 //https://s3.amazonaws.com/spec.ccfc.min/img/hello/kernel/hello-vmlinux.bin
@@ -47,9 +47,21 @@ firecracker.bootSource({
 ### Helper functions
 
 ``` js
+//Downloading an image
 firecracker.downloadImage('https://s3.amazonaws.com/spec.ccfc.min/img/hello/kernel/hello-vmlinux.bin', os.tmpdir() + '/hello-vmlinux.bin').then(function () {
   console.log('Kernel image downloaded!');
 }).catch(function(err) {
   console.log(err);
 });
+
+//Spawn Firecracker process
+firecracker.spawn().then(function () {
+  console.log('Firecracker spawned!');
+}).catch(function(err) {
+  console.log(err);
+});
+
+//Kill Firecracker process
+firecracker.kill()
+
 ```
