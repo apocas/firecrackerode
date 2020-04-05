@@ -9,11 +9,11 @@ process.on('SIGINT', function () {
 });
 
 streams.stdout.on('data', (data) => {
-  console.log(`Firecracker stdout:\n${data}`);
+  console.log(data.toString('utf8'));
 });
 
 streams.stderr.on('data', (data) => {
-  console.log(`Firecracker stderr:\n${data}`);
+  console.log(data.toString('utf8'));
 });
 
 console.log('Firecracker started!');
