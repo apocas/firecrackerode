@@ -1,6 +1,6 @@
 # firecrackerode
 
-Node.js client for Amazon's [Firecracker](http://firecracker-microvm.io) MicroVM framework.
+Node.js client for Amazon's [Firecracker](http://firecracker-microvm.io) MicroVM platform.
 
 ## Installation
 
