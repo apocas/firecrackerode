@@ -1,7 +1,6 @@
 var Firecracker = require('../lib/firecracker');
 
 var firecracker = new Firecracker({ socketPath: '/tmp/firecracker.socket' });
-
 var streams = firecracker.spawn('/root/firecracker');
 
 process.on('SIGINT', function () {
