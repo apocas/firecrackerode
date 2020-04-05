@@ -15,3 +15,5 @@ streams.stdout.on('data', (data) => {
 streams.stderr.on('data', (data) => {
   console.log(`Firecracker stderr:\n${data}`);
 });
+
+console.log('Firecracker started!');
