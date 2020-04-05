@@ -13,6 +13,7 @@ describe('#firecracker', function () {
         console.log('Kernel image downloaded!');
         return firecracker.downloadImage(rootImg, os.tmpdir() + '/hello-rootfs.ext4');
       }).then(function () {
+        console.log('Filesystem image downloaded!');
         done();
       }).catch(function (err) {
         expect(err).to.be.null;
@@ -26,6 +27,7 @@ describe('#firecracker', function () {
         expect(data).to.be.ok;
         done();
       }).catch(function (err) {
+        console.log(err);
         expect(err).to.be.null;
         done();
       });
