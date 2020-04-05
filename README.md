@@ -43,3 +43,13 @@ firecracker.bootSource({
   console.log(err);
 });
 ```
+
+### Helper functions
+
+``` js
+firecracker.downloadImage('https://s3.amazonaws.com/spec.ccfc.min/img/hello/kernel/hello-vmlinux.bin', os.tmpdir() + '/hello-vmlinux.bin').then(function () {
+  console.log('Kernel image downloaded!');
+}).catch(function(err) {
+  console.log(err);
+});
+```
