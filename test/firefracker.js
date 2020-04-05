@@ -11,6 +11,11 @@ before(async () => {
   }
 });
 
+after(function() {
+  var killed = firecracker.kill();
+  expect(killed).to.be.true;
+});
+
 describe('#firecracker', function () {
 
   describe('#images', function () {
@@ -23,7 +28,13 @@ describe('#firecracker', function () {
         await firecracker.downloadImage(rootImg, os.tmpdir() + '/hello-rootfs.ext4');
       }
       catch (err) {
-        expect(err).to.be.null;
+        expect(err).satisfy(function(value) {
+          if(value === null || value == 'File already exists') {
+            return true;
+          } else {
+            return false;
+          }
+        });
       }
     });
 
