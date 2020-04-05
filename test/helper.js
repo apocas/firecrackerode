@@ -1,8 +1,5 @@
 var Firecracker = require('../lib/firecracker');
-
-var firecracker = new Firecracker({ socketPath: '/tmp/firecracker.socket' });
-//var process = firecracker.spawn();
-//console.log('Firefracker started! ' + process.pid);
+firecracker = new Firecracker({ socketPath: '/tmp/firecracker.socket' });
 
 module.exports = {
   'firecracker': firecracker
