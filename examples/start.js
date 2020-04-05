@@ -1,3 +1,5 @@
+const os = require('os');
+
 var Firecracker = require('../lib/firecracker');
 
 var firecracker = new Firecracker({ socketPath: '/tmp/firecracker.socket' });
