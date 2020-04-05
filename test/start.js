@@ -15,7 +15,7 @@ firecracker.bootSource({
     'is_read_only': false
   });
 }).then(function(data) {
-  firecracker.actions.instanceStart();
+  return firecracker.action('instanceStart');
 }).then(function(data){
   console.log('MicroVM booted!');
 }).catch(function(err) {
