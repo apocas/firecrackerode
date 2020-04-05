@@ -16,6 +16,7 @@ describe('#firecracker', function () {
         console.log('Filesystem image downloaded!');
         done();
       }).catch(function (err) {
+        console.log(err);
         expect(err).to.be.null;
         done();
       });
