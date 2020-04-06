@@ -16,7 +16,7 @@ Node.js client for Amazon's [Firecracker](http://firecracker-microvm.io) MicroVM
 To use `firecrackerode` first you need to instantiate it:
 
 ``` js
-var Firecracker = require('dockerode');
+var Firecracker = require('firecrackerode');
 var firecracker = new Firecracker({socketPath: '/tmp/firecracker.socket'});
 ```
 
