@@ -2,16 +2,15 @@ const os = require('os');
 const expect = require('chai').expect;
 var firecracker = require('./helper').firecracker;
 
-before(async () => {  
+before(async () => {
   try {
     let process = await firecracker.spawn();
-    console.log('Firefracker started! ' + process.pid);
   } catch (err) {
     expect(err).to.be.null;
   }
 });
 
-after(function() {
+after(function () {
   var killed = firecracker.kill();
   expect(killed).to.be.true;
 });
@@ -28,8 +27,8 @@ describe('#firecracker', function () {
         await firecracker.downloadImage(rootImg, os.tmpdir() + '/hello-rootfs.ext4');
       }
       catch (err) {
-        expect(err).satisfy(function(value) {
-          if(value === null || value == 'File already exists') {
+        expect(err).satisfy(function (value) {
+          if (value === null || value == 'File already exists') {
             return true;
           } else {
             return false;
@@ -65,7 +64,7 @@ describe('#firecracker', function () {
     });
   });
 
-  describe('#firestarter', function () {
+  describe('#firecracker', function () {
     it('should get info', async function () {
       try {
         const data = await firecracker.info();
@@ -90,4 +89,35 @@ describe('#firecracker', function () {
     });
   });
 
+  describe('#machine-config', function () {
+    it('should get machine-config', async function () {
+      try {
+        var machineConfig = firecracker.machineConfig();
+        const data = await machineConfig.get();
+        expect(data).to.be.ok;
+        expect(data.vcpu_count).to.equal(1);
+        expect(data.mem_size_mib).to.equal(128);
+      }
+      catch (err) {
+        expect(err).to.be.null;
+      }
+    });
+
+    it('should partially update machine-config', async function () {
+      try {
+        firecracker.kill();
+        await firecracker.spawn();
+        var machineConfig = firecracker.machineConfig();
+        await machineConfig.partialUpdate({ 'mem_size_mib': 256 });
+        var machineConfig = firecracker.machineConfig();
+        let data = await machineConfig.get();
+        expect(data).to.be.ok;
+        expect(data.vcpu_count).to.equal(1);
+        expect(data.mem_size_mib).to.equal(256);
+      }
+      catch (err) {
+        expect(err).to.be.null;
+      }
+    });
+  });
 });
