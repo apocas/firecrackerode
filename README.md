@@ -8,7 +8,7 @@ Node.js client for Amazon's [Firecracker](http://firecracker-microvm.io) MicroVM
 
 ## Usage
 
- * Check [Fireracker API documentation](https://github.com/firecracker-microvm/firecracker/blob/master/src/api_server/swagger/firecracker.yaml) for more details.
+ * Check [Fireracker API documentation](https://github.com/firecracker-microvm/firecracker/blob/main/src/firecracker/swagger/firecracker.yaml) for more details.
  
 
 ### Getting started
